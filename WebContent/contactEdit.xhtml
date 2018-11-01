@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"  xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    <title>Edit Contact</title>
+    
+</h:head>
+<h:body>
+	<center><h2><h:outputText value="Atualizar Contato"/></h2></center>
+        <h:form id="editContatoForm" styleClass="form-horizontal">                        
+            <div >
+                <h:outputLabel for="idLabel" styleClass="control-label col-sm-2">Id:</h:outputLabel>
+                <div class="col-sm-4"><h:inputText id="contactId" value="#{contactView.selected.id}" p:readonly="readonly" styleClass="form-control" /></div>
+            </div>
+            <div >
+                <h:outputLabel for="idLabel" styleClass="control-label col-sm-2">Id:</h:outputLabel>
+                <div class="col-sm-4"><h:inputText id="contactName" value="#{contactView.selected.name}"  styleClass="form-control" /></div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2" />
+                <div class="col-sm-4">
+                    <h:commandButton value="Update" action="#{contactView.editContact()}" styleClass="btn btn-primary updateBtnStyle" />
+                </div>
+                <div class="col-sm-1" />
+                <div class="col-sm-updated"><h:outputLink value="contactList.xhtml">Volta para Agenda</h:outputLink></div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
