@@ -17,6 +17,11 @@ public class ContactView implements Serializable{
 	private Contact selected = new Contact();
 	private String selectedContactId;
 	private ContactDaoImpl cFacetes = new ContactDaoImpl();
+	private String name;
+	public String getName() {
+		return name;
+	}
+	
 	public String getTest() {
 		return "teste";
 	}
@@ -28,6 +33,14 @@ public class ContactView implements Serializable{
 	}
 	public void editContact(){
 		cFacetes.alter(selected);
+	}
+	public String createNewContact(){
+		return "/newContact.xhtml";
+	}
+	public String addNewContact(ContactView c) {
+		selected.setName(c.getName());
+		cFacetes.create(selected);
+		return "/contactList.xhtml";
 	}
 	public String deleteContact(){
 		cFacetes.remove(selected);
@@ -45,6 +58,16 @@ public class ContactView implements Serializable{
 	}
 	public void setcFacetes(ContactDaoImpl cFacetes) {
 		this.cFacetes = cFacetes;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	private int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

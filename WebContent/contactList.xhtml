@@ -16,30 +16,30 @@
 </h:head>
 <h:body>
     <center><h2><h:outputText value="Dados Dos Contatos"/></h2></center>
-    <h:form id="contatoForm">
-        <h:dataTable id="contatoTable" binding="#{table}" value="#{contactView.allContacts}" var="contato" styleClass="table table-striped table-bordered tableUpdated">
+    <h:form id="contactForm">
+        <h:dataTable id="contactTable" binding="#{table}" value="#{contactView.allContacts}" var="contact" styleClass="table table-striped table-bordered tableUpdated">
             <h:column>
                 <f:facet name="header">Id</f:facet>
-                <h:outputText value="#{contato.id}" />                
+                <h:outputText value="#{contact.id}" />                
             </h:column>
             <h:column>
                 <f:facet name="header">contato Name</f:facet>
-                <h:outputText value="#{contato.name}" />
+                <h:outputText value="#{contact.name}" />
             </h:column>
             <h:column>
                 <f:facet name="header">Update</f:facet>
                 <h:commandButton action="#{contactView.editContactDetails}" value="Update" styleClass="btn btn-primary">
-                	<f:setPropertyActionListener target="#{contactView.selected}" value="#{contato}" />
+                	<f:setPropertyActionListener target="#{contactView.selected}" value="#{contact}" />
                 </h:commandButton>
             </h:column>
             <h:column>
                 <f:facet name="header">Delete</f:facet>
                 <h:commandButton action="#{contactView.deleteContact}" value="Delete" styleClass="btn btn-danger" >
-                	<f:setPropertyActionListener target="#{contactView.selected}" value="#{contato}" />
+                	<f:setPropertyActionListener target="#{contactView.selected}" value="#{contact}" />
                 </h:commandButton>
             </h:column>
         </h:dataTable>
-        <center><h:commandButton action="newContato.xhtml?faces-redirect=true" value="Add New contato" styleClass="btn btn-success btnSpace" /></center>
+        <center><h:commandButton action="#{contactView.createNewContact}" value="Add New contact" styleClass="btn btn-success btnSpace" /></center>
     </h:form>
 </h:body>
 </html>
